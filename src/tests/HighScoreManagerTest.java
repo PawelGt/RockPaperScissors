@@ -42,13 +42,14 @@ public class HighScoreManagerTest {
         File f = new File(path + "\\" + fileName);
         FileWriter output = null;
 
-        String expectedUserName = "User";
-        int expectedHighScore = 10;
+        String expectedUserName = "User1";
+        int expectedHighScore = 11;
 
         try {
             output = new FileWriter(f);
             BufferedWriter writer = new BufferedWriter(output);
             writer.write(expectedUserName + " " + expectedHighScore);
+            writer.close();
 
             HighScoreManager highScoreManager = new HighScoreManager(path);
 
@@ -57,6 +58,5 @@ public class HighScoreManagerTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
